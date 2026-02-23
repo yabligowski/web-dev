@@ -1,0 +1,33 @@
+/*Comment here*/
+body{
+ font-family: cursive
+}
+
+p, h1, h2 {
+   color: darkblue
+}
+
+ a {
+   color: darkgreen
+}
+
+ a:hover {
+   color: pink
+}
+
+ ul li {
+   font-style: italic
+}
+
+ .int-link, ol p {
+   font-weight: bolder
+}
+
+  #mail-link{
+   color:purple
+}
+
+
+
+
+
