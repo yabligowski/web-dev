@@ -1,1 +1,60 @@
 
+
+body{
+ font-family: Quintessential,cursive;
+  background:#17838F;
+  font-size:25px;
+  font-color:#02E2FA;
+  text-align:center;
+  
+}
+
+div.card{
+  background-color:#008CB3;
+  margin-left:75px;
+  margin-right:75px;
+  border:solid 3px #02FA97;
+  border-radius:10px;
+  padding:2rem;
+}
+
+h1, h2 {
+  color:#17478F;
+  border-color:black;
+ 
+}
+
+p{
+ font-family:Macondo;
+  color:#02E2FA;
+  margin-left:20%;
+  margin-right:20%;
+}
+
+ a {
+   color: darkgreen
+}
+
+ a:hover {
+   color: pink
+}
+
+ ul li {
+   font-style: italic
+}
+
+ .int-link, ol p {
+   font-weight: bolder
+}
+
+  #mail-link{
+   color:purple
+}
+
+ hr{
+  width:50%;
+}
+
+div{
+  color:#02FA97;
+}
