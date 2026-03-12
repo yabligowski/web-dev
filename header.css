@@ -25,6 +25,7 @@ h1{
   flex-grow:1;
   position:relative;
   top:0px;
+  font-color:#02E2FA;
 }
 
 .nav-div a{
