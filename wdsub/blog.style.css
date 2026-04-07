@@ -15,8 +15,10 @@ body{
   font-color:white;
   font-size:25px;
   top:0px;
- 
- 
+
+  
+  
+  
   
 }
 /*#plane{
@@ -30,10 +32,6 @@ body{
   margin-top:0px;
 }
 */
- #return{
-   text-align:center;
- }
-
 h1{
   text-align:center;
   margin:10px, auto;
@@ -43,6 +41,10 @@ h1{
   margin-bottom:0px;
   padding:3%;
 }
+#return{
+   text-align:center;
+}
+
 #nav-menu{
   display:flex;
   flex: 1 1 auto;
