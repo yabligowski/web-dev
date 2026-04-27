@@ -1,10 +1,10 @@
-body{
+#nav-menu body{
   margin:0px;
   font-family:quintessential;
   font-color:#02E2FA;
 }
 
-h1{
+#nav-menu h1{
   text-align:center;
   margin:10px, auto;
   font-family:quintessential;
@@ -20,7 +20,7 @@ h1{
   
 }
 
-.nav-div{
+#nav-menu .nav-div{
   text-align:center;
   flex-grow:1;
   position:relative;
@@ -28,13 +28,13 @@ h1{
   font-color:#02E2FA;
 }
 
-.nav-div a{
+#nav-menu .nav-div a{
   display: inline-block;
   width:100%;
   background-color:rgb(255, 255, 255, 0.8);
 }
 
-.nav-div ul{
+#nav-menu .nav-div ul{
   display:none;
   position:absloute;
   backround-color:rgb(255, 255, 255, 0.8);
@@ -45,22 +45,22 @@ h1{
   
 }
 
-.nav-div:hover{
+#nav-menu .nav-div:hover{
   color:purple;
   background-color:rgb(255, 255, 255, 0.8);
   font-weight:bold;
 }
 
-.nav-div:hover a{
+#nav-menu .nav-div:hover a{
   color:lightblue;
   background-color:rgb(255, 255, 255, 0.8);
 }
-a{
+#nav-menu a{
   color:inherit;
   text-decoration:none;
   font-size:150%;
 }
-.nav-spacer{
+#nav-menu .nav-spacer{
   flex-grow:0;
   width:0px;
   margin:0px;
@@ -68,7 +68,7 @@ a{
   border:1px solid black;
 }
 
-.nav-div:hover ul {
+#nav-menu .nav-div:hover ul {
   display:block;
 }
 
