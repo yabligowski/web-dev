@@ -5,4 +5,4 @@ document.body.prepend(elem);
 fetch("https://yabligowski.github.io/wed-dev/header.css")
 .then((result) => result.text())
 .then((text) => {elem.innerHTML = elem.innerHTML +text;})
-.catch((e) => concole.error(e));
+.catch((e) => console.error(e));
