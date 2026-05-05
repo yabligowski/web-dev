@@ -53,6 +53,7 @@ function saveItems(){
 }
 
 function loadItems(){
-  cookieArr = document.cookie.split("=")[1];
+  cookieArr = document.cookie.substring(6);
   list.innerHTML = cookieArr;
 }
+  
