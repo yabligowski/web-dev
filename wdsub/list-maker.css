@@ -1,0 +1,53 @@
+h1 {
+  text-align:center;
+  color:white;
+}
+
+h2 {
+  text-align:center;
+  color:white;
+}
+
+body {
+  background-color:#010942;
+}
+
+label {
+  padding-top:50px;
+  color:white;
+}
+
+#content{
+  text-align:center;
+  
+ 
+}
+
+li { 
+list-style-type:none;
+color:white;
+}
+
+li button {
+  background-color:rgba(0,0,0,0);
+  border:0px;
+  padding-right:5px;
+}
+
+#in-list {
+  border:10px;
+  border-color:white;
+  border-radius:10px;
+  text-align:left;
+  padding-left: 30%;
+  padding-right:30%;
+  
+  
+}
+
+ul{
+   border-radius:10px;
+  border-color:white;
+  border:solid;
+  background-color:#6274F0;
+}
