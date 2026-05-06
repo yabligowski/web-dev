@@ -4,5 +4,5 @@ document.body.prepend(elem);
 
 fetch("https://yabligowski.github.io/web-dev/globalheader.css")
 .then((result) => result.text())
-.then((text) => {elem.innerHTML = elem.innerHTML +text;})
+.then((text) => {elem.innerHTML = elem.innerHTML + text;})
 .catch((e) => console.error(e));
