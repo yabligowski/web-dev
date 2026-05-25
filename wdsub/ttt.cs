@@ -25,6 +25,7 @@ h1 {
   min-height:100px;
   color:white;
   font-size:100%;
+  width:30%;
 }
 
 #game-over{
