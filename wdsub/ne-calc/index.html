@@ -37,8 +37,8 @@
 <script>
  function enterMatrix(){
    //get input values to pass to next page
-  let p1NumStrats = document.getElemntById("p1-strats").value; 
-  let p2NumStrats = document.getElemntById("p2-strats").value; 
+  let p1NumStrats = document.getElementById("p1-strats").value; 
+  let p2NumStrats = document.getElementById("p2-strats").value; 
    
    //send user to the matrix page
    navigation.navigate("matrix.html?p1NumStrats=" + p1NumStrats + "&p2NumStrats=" + p2NumStrats);
