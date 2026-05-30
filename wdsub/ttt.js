@@ -11,18 +11,11 @@ for(const elem of squareArr){
 };
 
 function drawSymbol(event){
-let clickedSquare = event.target;
-  
-if (clickedSquare.innerText =="")clickedSquare.innerText+= ((currentPlayer=0) ? "X": "O"); 
-  if (checkForWinner() == false) checkForDraw();
- changePlayer();
-  }
-
-function changePlayer() {
-  currentPlayer = 1 - currentPlayer;
-  turnTrackerText.innerText = ((currentPlayer == 0) ? "X" : "O");
-  
-
+  let clickedSquare = event.target;
+    if (clickedSquare.innerText =="")clickedSquare.innerText = currentPlayer; 
+    if (checkForWinner() == false) checkForDraw();
+   changePlayer();
+   }
 
 
 function checkForWinner() {
@@ -69,9 +62,8 @@ function checkForWinner() {
   
   
   function checkForDraw(){
-    let isDraw = true;
-    
-    for (const elem of squareArr){
+   let isDraw = true;
+   for (const elem of squareArr){
      if (elem.innerText=="") isDraw = false;
     }
     
@@ -82,17 +74,10 @@ function checkForWinner() {
     gameOverDiv.style.display = "block";
     winnerText.innerText = "No one wins...";
     }
-  }
   
   
  function changePlayer(){
  currentPlayer = ((currentPlayer=="X") ? "O":"X");
-}
-  
-  
-  
-  
-  
 }
 
 function clearBoard(){
