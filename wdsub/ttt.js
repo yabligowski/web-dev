@@ -1,4 +1,3 @@
-
 let gameOverDiv = document.getElementById("game-over");
 let winnerText = document.querySelector("#game-over p");
 let squareArr = document.querySelectorAll(".ttt-square");
@@ -18,15 +17,19 @@ if (clickedSquare.innerText =="")clickedSquare.innerText+= ((currentPlayer=0) ? 
   if (checkForWinner() == false) checkForDraw();
  changePlayer();
   }
+
+function changePlayer() {
+  currentPlayer = 1 - currentPlayer;
+  turnTrackerText.innerText = ((currentPlayer == 0) ? "X" : "O");
   
-};
+
 
 
 function checkForWinner() {
   let isGameOver = false;
   
   for ( let i = 0; i<3; i++){
-     if (squareArr[3 * 1].innerText == currentPlayer
+        if (squareArr[3 * 1].innerText == currentPlayer
          && squareArr[3 * i +1].innerText == currentPlayer
          && squareArr[3 * i + 2].innerText == currentPlayer) isGameOver = true;
     }
@@ -46,10 +49,12 @@ function checkForWinner() {
           && squareArr[4].innerText == currentPlayer
           && squareArr[6].innerText == currentPlayer) isGameOver = true;
   
-  if (isGameOver) {
-showWinner();
-}
-  return isGameOver;
+  if (isGameOver) showWinner();
+ return isGameOver;
+  }  
+  
+ 
+
   
   
   
@@ -57,16 +62,9 @@ showWinner();
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  function showWinner(){
+ function showWinner(){
     gameOverDiv.style.display = "block";
-    winnerText.innerText = currentPlayer + "Player has won!";
+    winnerText.innerText = currentPlayer + " Player has won!";
   }
   
   
@@ -78,7 +76,8 @@ showWinner();
     }
     
     if (isDraw) showDraw();
-   
+  }
+  
     function showDraw(){
     gameOverDiv.style.display = "block";
     winnerText.innerText = "No one wins...";
@@ -87,7 +86,6 @@ showWinner();
   
   
  function changePlayer(){
-   currentPlayer = 1 - currentPlayer;
  currentPlayer = ((currentPlayer=="X") ? "O":"X");
 }
   
@@ -97,7 +95,7 @@ showWinner();
   
 }
 
-function resetGame(){
+function clearBoard(){
  gameOverDiv.style.display = "none";
   
   for (const elem of squareArr){
