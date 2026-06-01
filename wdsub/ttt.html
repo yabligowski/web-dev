@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="ttt.css">
-  </head>
-
+<head>
+  <link rel="stylesheet" href="ttt.css">
+  <script src="/web-dev/headerinjection.js"></script>
+  <title>
+    Tic-Tac-Toe
+  </title>
+</head>
   <body>
-
- <script src="/web-dev/headerinjection.js"></script>
-  
-    
-<h1>✖Tic-Tac-Toe✖</h1>
+   <h1>✖Tic-Tac-Toe✖</h1>
 
 <div id="scoreboard"></div>
 
 
 <div class="ttt-row">
-<div class="ttt-square"></div>
-<div class="ttt-square"></div>
-<div class="ttt-square"></div>
+  <div class="ttt-square"></div>
+  <div class="ttt-square"></div>
+  <div class="ttt-square"></div>
 </div>
 
-  <div class="ttt-row">
-<div class="ttt-square"></div>
-<div class="ttt-square"></div>
-<div class="ttt-square"></div>
-  </div>
-  
-    <div class="ttt-row">
-<div class="ttt-square"></div>
-<div class="ttt-square"></div>
-<div class="ttt-square"></div>
-  </div>
+<div class="ttt-row">
+  <div class="ttt-square"></div>
+  <div class="ttt-square"></div>
+  <div class="ttt-square"></div>
+</div>
 
+<div class="ttt-row">
+  <div class="ttt-square"></div>
+  <div class="ttt-square"></div>
+  <div class="ttt-square"></div>
+</div>
 
 <div id="game-over">
   <div>
-    <p>🎉Player X Won!🎉</p>
-      <button onclick="resetGame()">New Game🔃</button>
+    <p>Player X won!</p>
+    <button onclick="clearBoard()">New Game</button>
   </div>
 </div>
 
-<script scr="ttt.js"></script>
-    
-</body>
+    <script src="ttt.js"></script>
+  </body>
 </html>
