@@ -43,7 +43,7 @@ function buildMatrix() {
 }
 
 function randomize(){
-  let payoffArr= document.querySelectorAll("input");
+  let payoffArr= document.querySelectorAll(".payoff-cell input");
   const MIN = -5;
   const MAX = 15;    
   
