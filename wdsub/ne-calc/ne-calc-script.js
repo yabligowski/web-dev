@@ -1,108 +1,100 @@
-
-
 let queryParams = new URLSearchParams(window.location.search);
-const P1_NUM_STRATS = queryParams.get("p1NumStrats");
-const P2_NUM_STRATS = queryParams.get("p2NumStrats");
-const PAYOFF_CONTENTS = "(<input type='number'>,<input type='number'>)";
-
+const P1NUMSTRATS = queryParams.get("p1NumStrats");
+const P2NUMSTRATS = queryParams.get("p2NumStrats");
+const PAYOFF_CONTENTS = "(<input type= 'number'>,<input type= 'number'>)";
 
 buildMatrix();
 
-function buildMatrix() {
- let matrix = document.getElementById("matrix");
-  
-  
-  //Loop (P1_STRATS + 1) number of times. create a row div each iteration
-  for (let i = 0; i < (P1_NUM_STRATS + 1); i++) {
-    //Create a row div
+function buildMatrix () {
+  let matrix = document.getElementById("matrix");
+  //Loop through (P1NUMSTRATS + 1) times. Each iteration, make a row div
+  for (let i = 0; i < (P1NUMSTRATS + 1); i++) {
+     //create new row div
     let newRow = document.createElement("div");
     newRow.classList.add("matrix-row");
-    matrix.append(newRow);  
-    
-    //Loop (P2_STRATS + 1) number times. Create a cell dic each iteration
-    for ( let j = 0; j < (P2_NUM_STRATS + 1); j++) {
-      //Create a cell div
-      let newCell = document.createElement("div");
-      if (i==0 && j==0){
-        newCell.classList.add("empty-cell");
-      
-      } else if (i == 0) {
-        newCell.classList.add("strat-cell");
-        newCell.innerHTML= "t<sub>"+j+"</sub>";
-      
-      } else if (j == 0) {
-        newCell.classList.add("strat-cell");
-        newCell.innerHTML= "s<sub>"+i+"</sub>";
-      
-      } else  {
-        newCell.classList.add("payoff-cell")
-        newCell.innerHTML = PAYOFF_CONTENTS;
-      }
-      newRow.append(newCell);
+    matrix.append(newRow);
+    //loop through (P2NUMSTRATS + 1) times. Each iteration, make a cell 
+    for (let j = 0; j < (P2NUMSTRATS + 1); j++) {
+      //create new cell
+    let newCell = document.createElement("div");
+    if (i == 0 && j == 0) {
+      newCell.classList.add("empty-cell");
+    } else if (i == 0) {
+      newCell.classList.add("strat-cell");
+      newCell.innerHTML = ("t<sub>" + j + "</sub>");
+    }
+      else if (j == 0) {
+      newCell.classList.add("strat-cell");
+      newCell.innerHTML = ("s<sub>" + i + "</sub>");
+    } else {
+      newCell.classList.add("payoff-cell");
+      newCell.innerHTML = PAYOFF_CONTENTS;
+    }
+    newRow.append(newCell);
     }
   }
 }
 
-function randomize(){
-  let payoffArr= document.querySelectorAll("input");
-  const MIN = -5;
-  const MAX = 15;    
+function randomize() {
+  let payoffArr = document.querySelectorAll(".payoff-cell input");
+  const MIN = 0;
+  const MAX = 20;
   
-  for (const elem of payoffArr){
-    elem.value = Math.floor(Math.random()*(MAX + 1 -MIN)+MIN);
+  for (const elem of payoffArr) {
+    elem.value = Math.floor(Math.random() * (MAX - MIN) + MIN);
   }
 }
 
-function compute(){
+function compute() {
   let p1PayArr = document.querySelectorAll(".payoff-cell input:first-child");
   let p2PayArr = document.querySelectorAll(".payoff-cell input:last-child");
   let payCellArr = document.querySelectorAll(".payoff-cell");
   
-  for (const elem of payCellArr){
-    if(elem.classList.contains("eliminated") == true) elem.classList.remove("eliminated");
-    if(elem.classList.contains("ne") == true) elem.classList.remove("ne");
+  for (const elem of payCellArr) {
+    if (elem.classList.contains("eliminated") == true) elem.classList.remove("eliminated");
+    if (elem.classList.contains("ne") == true) elem.classList.remove("ne");
   }
   
-  //loop through every column,finding p1's highest payoff out of the rows
-  for(let j=0; j < P2_NUM_STRATS; j++){
+  
+  //Loop through every column, finding p1 highest payoff
+  
+  for (let j = 0;j < P2NUMSTRATS;j++) {
     let largest = -Infinity;
     
-    //identify the highest payoff in this column
-    for(let i = 0; i< P1_NUM_STRATS; i++){
-      if(Number(p1PayArr[P2_NUM_STRATS*i + j].value) > Number(largest)) largest = p1PayArr[P2_NUM_STRATS*i + j].value;
+    //Idenitify highest payoff in column
+    for (let i = 0; i < P1NUMSTRATS; i++) {
+      if (Number(p1PayArr[P2NUMSTRATS*i + j].value) > Number(largest)) largest = p1PayArr[P2NUMSTRATS*i + j].value;
     }
     
-    //eliminate any cells which arent best responses
-     for(let i = 0; i< P1_NUM_STRATS; i++){
-      if(Number(p1PayArr[P2_NUM_STRATS*i + j].value) != Number(largest)) payCellArr[P2_NUM_STRATS*i + j].classList.add("eliminated");
+    //Eliminate any cells which aren't best responses
+    
+    for (let i = 0; i < P1NUMSTRATS; i++) {
+      if (Number(p1PayArr[P2NUMSTRATS*i + j].value) != Number(largest)) payCellArr[P2NUMSTRATS*i + j].classList.add("eliminated");
     }
     
   }
   
- 
-  //loop through every row, finding p2's hightest payoff out of the columns
+  //Loop through every row, finding p2 highest payoff
   
-  for(let i=0; i < P1_NUM_STRATS; i++){
+  for (let i = 0;i < P1NUMSTRATS;i++) {
     let largest = -Infinity;
     
-    //identify the highest payoff in this column
-    for(let j = 0; j< P2_NUM_STRATS; j++){
-      if(Number(p2PayArr[P2_NUM_STRATS*i + j].value) > Number(largest)) largest = p2PayArr[P2_NUM_STRATS*i + j].value;
+    //Idenitify highest payoff in rows
+    for (let j = 0; j < P2NUMSTRATS; j++) {
+      if (Number(p2PayArr[P2NUMSTRATS*i + j].value) > Number(largest)) largest = p2PayArr[P2NUMSTRATS*i + j].value;
     }
     
-    //eliminate any cells which arent best responses
-     for(let j = 0; j< P2_NUM_STRATS; j++){
-      if(Number(p2PayArr[P2_NUM_STRATS*i + j].value) != Number(largest)) payCellArr[P2_NUM_STRATS*i + j].classList.add("eliminated");
-    }
+    //Eliminate any cells which aren't best responses
     
+    for (let j = 0; j < P2NUMSTRATS; j++) {
+      if (Number(p2PayArr[P2NUMSTRATS*i + j].value) != Number(largest)) payCellArr[P2NUMSTRATS*i + j].classList.add("eliminated");
+    }
   }
   
-  //give ne class to any cells which are best response for both players
-  for(const elem of payCellArr){
-    if(elem.classList.contains("eliminated") == false ) elem.classList.add("ne");
+  //Give ne class to any cells which are best responses for both players
+  
+  for (const elem of payCellArr) {
+    if (elem.classList.contains("eliminated") == false) elem.classList.add("ne");
   }
   
 }
-
-
-
